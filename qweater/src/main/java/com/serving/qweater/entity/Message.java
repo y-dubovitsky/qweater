@@ -1,6 +1,4 @@
-package com.serving.qweater.domain;
-
-import org.springframework.web.bind.annotation.GetMapping;
+package com.serving.qweater.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,9 +12,18 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private String msg;
+    private String text;
 
     private String tags;
+
+    public Message(String text, String tags) {
+        this.text = text;
+        this.tags = tags;
+    }
+
+    // Нужен конструктор по дефолту, иначе не будет работать эта сущность..
+    // Скорее всего идет какое то наследование
+    public Message() {}
 
     public int getId() {
         return id;
@@ -26,12 +33,12 @@ public class Message {
         this.id = id;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getText() {
+        return text;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public String getTags() {

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="jdbc:mysql://localhost:3306/qweater?useLegacyDatetimeCode=false&amp;amp;serverTimezone=UTC" uuid="856f42ca-8669-4dd2-bfda-5906ee75dd5d">
+    <data-source source="LOCAL" name="qweater@localhost" uuid="856f42ca-8669-4dd2-bfda-5906ee75dd5d">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
-      <configured-by-url>true</configured-by-url>
       <remarks>jdbc:mysql://localhost:3306/qweater?useLegacyDatetimeCode=false&amp;amp;serverTimezone=UTC
 
 jdbc:mysql://localhost:3306/qweater</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/qweater?useLegacyDatetimeCode=false&amp;amp;serverTimezone=UTC</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/qweater</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
