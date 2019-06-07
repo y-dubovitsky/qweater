@@ -1,4 +1,4 @@
-package com.serving.qweater;
+package com.serving.qweater.controller;
 
 import com.serving.qweater.entity.Message;
 import com.serving.qweater.repo.MessageRepository;
