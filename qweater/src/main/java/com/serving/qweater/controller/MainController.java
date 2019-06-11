@@ -17,7 +17,7 @@ public class MainController {
     private MessageRepository messageRepository;
 
     @GetMapping("/")
-    public String greeting(){
+    public String greeting(Map<String, Object> model){
         return "greeting";
     }
 
