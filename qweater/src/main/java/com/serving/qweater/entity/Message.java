@@ -1,9 +1,6 @@
 package com.serving.qweater.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Message {
@@ -16,7 +13,12 @@ public class Message {
 
     private String tags;
 
-    public Message(String text, String tags) {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
+
+    public Message(String text, String tags, User author) {
+        this.author = author;
         this.text = text;
         this.tags = tags;
     }
@@ -24,6 +26,10 @@ public class Message {
     // Нужен конструктор по дефолту, иначе не будет работать эта сущность..
     // Скорее всего идет какое то наследование
     public Message() {}
+
+    public String getAuthorName() {
+        return author != null ? author.getUsername() : "<empty>";
+    }
 
     public int getId() {
         return id;
@@ -47,5 +53,13 @@ public class Message {
 
     public void setTags(String tags) {
         this.tags = tags;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

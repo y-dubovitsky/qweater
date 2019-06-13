@@ -1,8 +1,10 @@
 package com.serving.qweater.controller;
 
 import com.serving.qweater.entity.Message;
+import com.serving.qweater.entity.User;
 import com.serving.qweater.repo.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,8 +33,12 @@ public class MainController {
     }
 
     @PostMapping("/main")
-    public String add(@RequestParam String text, @RequestParam String tags, Map<String, Object> map) {
-        Message message = new Message(text, tags);
+    public String add(
+            @AuthenticationPrincipal User user,
+            @RequestParam String text,
+            @RequestParam String tags, Map<String, Object> map
+    ) {
+        Message message = new Message(text, tags, user);
 
         // save message to the database;
         messageRepository.save(message);
