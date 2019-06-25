@@ -20,11 +20,5 @@ jdbc:mysql://localhost:3306/qweater</remarks>
         <property name="serverTimezone" value="UTC" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="qweater@localhost [2]" uuid="3b951511-b1c7-4234-bafb-3aef88a82dfd">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5433/qweater</jdbc-url>
-    </data-source>
   </component>
 </project>
