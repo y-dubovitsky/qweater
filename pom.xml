@@ -27,6 +27,7 @@
 
   <modules>
     <module>qweater</module>
+    <module>inaction</module>
   </modules>
   <packaging>pom</packaging>
   <name>spring</name>
