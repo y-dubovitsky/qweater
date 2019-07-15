@@ -28,6 +28,7 @@
   <modules>
     <module>qweater</module>
     <module>inaction</module>
+    <module>professional</module>
   </modules>
   <packaging>pom</packaging>
   <name>spring</name>
