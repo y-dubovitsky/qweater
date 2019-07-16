@@ -38,7 +38,11 @@
           class="di.idol.instruments.Guitar">
     </bean>
 
-    <bean id="rockBand"
+    <bean id="piano"
+          class="di.idol.instruments.Piano">
+    </bean>
+
+    <bean id="oneManBand"
           class="di.idol.OneManBand"
           init-method="beforePerform">
         <property name="instrument">
@@ -47,6 +51,24 @@
                 <bean class="di.idol.instruments.Piano"/>
             </list>
         </property>
+    </bean>
+
+    <bean id="rockBand"
+          class="di.idol.RockBand"
+          init-method="beforeAll">
+        <property name="instrument">
+            <map>
+                <entry key="guitar" value-ref="guitar"/>
+                <entry key="piano" value-ref="piano"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="carl"
+          class="di.idol.CarlInstrumentalist">
+        <!-- used SpEL language -->
+        <property name="song" value="#{kenny.song}"/>
+        <property name="instrument" value="#{kenny.instrument}"/>
     </bean>
 
 </beans>

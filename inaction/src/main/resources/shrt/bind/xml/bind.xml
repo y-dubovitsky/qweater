@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="mrSmith"
+          class="shrt.bind.xml.Man"
+          autowire="byName">
+    </bean>
+
+    <bean id="mrsSmith"
+          class="shrt.bind.xml.MrsSmith"
+          autowire="byType"/>
+
+    <!-- This bean exclude from autowired by type -->
+    <bean id="drink"
+          class="shrt.bind.xml.Water"
+          autowire-candidate="false">
+    </bean>
+
+    <bean id="vodka"
+          class="shrt.bind.xml.Vodka"
+          autowire-candidate="true">
+    </bean>
+
+    <bean id="neighbour"
+          class="shrt.bind.xml.Neighbour"
+          autowire="constructor">
+    </bean>
+</beans>

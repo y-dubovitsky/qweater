@@ -16,7 +16,13 @@ public class Perform {
         Performer kenny = (Instrumentalist) ap.getBean("kenny");
         kenny.perform();
 
-        Performer band = (OneManBand) ap.getBean("rockBand");
-        band.perform();
+        Performer manBand = (OneManBand) ap.getBean("oneManBand");
+        manBand.perform();
+
+        Performer rockBand = (RockBand) ap.getBean("rockBand");
+        rockBand.perform();
+
+        Performer carl = (CarlInstrumentalist) ap.getBean("carl");
+        carl.perform();
     }
 }
