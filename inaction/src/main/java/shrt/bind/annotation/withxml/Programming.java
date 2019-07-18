@@ -1,4 +1,4 @@
-package shrt.bind.annotation;
+package shrt.bind.annotation.withxml;
 
 public class Programming implements Function {
 

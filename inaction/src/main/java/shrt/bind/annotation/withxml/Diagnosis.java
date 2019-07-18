@@ -1,4 +1,4 @@
-package shrt.bind.annotation;
+package shrt.bind.annotation.withxml;
 
 public class Diagnosis implements Function {
 
