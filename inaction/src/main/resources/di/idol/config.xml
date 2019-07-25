@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
     <bean id="duke"
           class="di.idol.Juggler">
         <!-- use not default constructor -->
@@ -70,5 +70,21 @@
         <property name="song" value="#{kenny.song}"/>
         <property name="instrument" value="#{kenny.instrument}"/>
     </bean>
+
+    <!-- Added aspects -->
+    <bean id="audience"
+          class="di.idol.aspect.Audience"/>
+
+    <!-- AOP SETTINGS -->
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:before pointcut=
+                                "execution(* di.idol.Performer.perform(..))"
+                        method="takeSeats" /> <!-- Перед выступлением -->
+            <aop:after-returning pointcut=
+                                         "execution(*  di.idol.Performer.perform(..))"
+                                 method="applaud"/>
+        </aop:aspect>
+    </aop:config>
 
 </beans>
