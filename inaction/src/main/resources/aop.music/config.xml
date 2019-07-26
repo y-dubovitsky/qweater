@@ -16,10 +16,22 @@
         </property>
     </bean>
 
+    <bean id="magician"
+          class="aop.music.Magician"/>
+
     <aop:config>
         <aop:aspect ref="check">
             <aop:pointcut id="embark" expression="execution(* *.play(..))"/>
             <aop:after pointcut-ref="embark" method="checkInstrum"/>
+            <aop:before pointcut-ref="embark" method="putCase"/>
+            <aop:around pointcut-ref="embark" method="watchPerformance"/>
+        </aop:aspect>
+        <aop:aspect ref="magician">
+            <aop:pointcut id="thinking" expression="execution(* *.thinkOfSomething(String))
+                    and args(thoughts)"/>
+            <aop:before pointcut-ref="thinking"
+                        method="interceptThoughts"
+                        arg-names="thoughts" />
         </aop:aspect>
     </aop:config>
 
