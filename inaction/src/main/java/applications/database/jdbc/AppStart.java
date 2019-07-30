@@ -3,6 +3,10 @@ package applications.database.jdbc;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+//TODO Make from this class TESTS!
+/**
+ * Main class of application
+ */
 public class AppStart {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("/applications/database/jdbc/spitter.xml");
@@ -17,7 +21,13 @@ public class AppStart {
         queries.addSpitter(spitter);
         queries.getSpitterById(1);
 
-        SpitterDAO template = (SpitterDAO) context.getBean("jdbcSpitterDAO");
+        SpitterDao template = (SpitterDao) context.getBean("jdbcSpitterDAO");
         template.addSpitter(spitter);
+        Spitter sp = template.getSpitterById(1);
+        System.out.println(sp.getUserName());
+
+        SpitterDao daoExtends = (SpitterDao) context.getBean("jdbcSpitterDaoExtends");
+        Spitter s = daoExtends.getSpitterById(5);
+        System.out.println("jdbcSpitterDaoExtends " + s.getUserName());
     }
 }

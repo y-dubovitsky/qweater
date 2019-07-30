@@ -3,7 +3,7 @@ package applications.database.jdbc;
 /**
  * Тут должны быть методы работы с Базой данных.
  */
-public interface SpitterDAO {
+public interface SpitterDao {
 
     void addSpitter(Spitter spitter);
 

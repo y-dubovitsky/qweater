@@ -33,8 +33,14 @@
         <constructor-arg ref="datasource"/>
     </bean>
 
+    <bean id="jdbcSpitterDaoExtends"
+          class="applications.database.jdbc.JdbcSpitterDaoExtends">
+        <!-- <property name="jdbcTemplate" ref="jdbcTemplate" />  не получилос связать -->
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+
     <bean id="jdbcSpitterDAO"
-          class="applications.database.jdbc.JdbcSpitterDAO">
+          class="applications.database.jdbc.JdbcSpitterDao">
         <!-- Ссылается на собственную реализацию шаблона спринг jdbcTemplate -->
         <property name="jdbcTemplate" ref="simpleJdbcTemplateSpitterDao" />
     </bean>

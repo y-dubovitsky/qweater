@@ -12,7 +12,7 @@ import java.sql.SQLException;
  * In this class executes various sql queries;
  * And in this class not uses Spring pattern!
  */
-public class Queries implements SpitterDAO {
+public class Queries implements SpitterDao {
 
     @Autowired
     private DataSource dataSource;

@@ -5,12 +5,14 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * In this class uses JDBC Template from Spring!
  * If we uses spring jdbc template, we do not need to handle exceptions and write a lot of code, only the logic of the work
  */
-public class JdbcSpitterDAO implements SpitterDAO {
+public class JdbcSpitterDao implements SpitterDao {
 
     /**
      * Attention! This is pattern code!
@@ -26,6 +28,14 @@ public class JdbcSpitterDAO implements SpitterDAO {
     private static final String SQL_SELECT_SPITTER_BY_ID =
             "select * from spitter where id = ?";
 
+    private static final String SQL_INSERT_SPITTER_NAMED =
+            "insert into spitter (username, password, fullname) " +
+                    "values (:username, :password, :fullname)";
+
+    /**
+     * Setter
+     * @param jdbcTemplate
+     */
     public void setJdbcTemplate(SimpleJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -36,6 +46,19 @@ public class JdbcSpitterDAO implements SpitterDAO {
                 spitter.getUserName(),
                 spitter.getPassword(),
                 spitter.getFullName());
+    }
+
+
+    /**
+     * This method uses named query;
+     * @param spitter
+     */
+    public void addSpitterNamed(Spitter spitter) {
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("username", spitter.getUserName()); // Связывание параметров
+        params.put("password", spitter.getPassword());
+        params.put("fullname", spitter.getFullName());
+        jdbcTemplate.update(SQL_INSERT_SPITTER_NAMED, params); // Вставка
     }
 
     @Override
