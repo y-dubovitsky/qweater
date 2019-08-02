@@ -33,6 +33,15 @@
         </property>
     </bean>
 
+    <!-- Транзакции Hibernate -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="hibernateSpitterDao" class="applications.database.hibernate.HibernateSpitterDao">
+
+    </bean>
+
     <!-- PersistenceExceptionTranslationPostProcessor – это механизм постобработки компонентов,
     добавляющий объект-советник во все компоненты, отмеченные аннотацией @Repository,
     который будет перехватывать все специфические исключения и преобразовывать их
