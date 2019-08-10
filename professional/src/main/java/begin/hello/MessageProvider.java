@@ -1,4 +1,4 @@
-package begin;
+package begin.hello;
 
 /**
  * Interface provide getting message

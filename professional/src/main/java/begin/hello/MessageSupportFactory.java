@@ -1,4 +1,4 @@
-package begin;
+package begin.hello;
 
 import java.util.Properties;
 
@@ -14,6 +14,7 @@ public class MessageSupportFactory {
     private Properties properties;
 
     private MessageSupportFactory() {
+        System.out.println("hello from private constructor");
         properties = new Properties();
 
         try {
@@ -30,6 +31,7 @@ public class MessageSupportFactory {
     }
 
     static {
+        System.out.println("hello from static block");
         messageSupportFactory = new MessageSupportFactory();
     }
 

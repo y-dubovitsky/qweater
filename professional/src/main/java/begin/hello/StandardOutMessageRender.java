@@ -1,4 +1,4 @@
-package begin;
+package begin.hello;
 
 /**
  * Standard oud class

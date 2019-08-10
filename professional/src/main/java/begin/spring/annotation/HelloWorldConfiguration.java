@@ -1,9 +1,9 @@
 package begin.spring.annotation;
 
-import begin.HelloWorldMessageProvider;
-import begin.MessageProvider;
-import begin.MessageRender;
-import begin.StandardOutMessageRender;
+import begin.hello.HelloWorldMessageProvider;
+import begin.hello.MessageProvider;
+import begin.hello.MessageRender;
+import begin.hello.StandardOutMessageRender;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

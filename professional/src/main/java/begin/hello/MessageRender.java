@@ -1,4 +1,4 @@
-package begin;
+package begin.hello;
 
 public interface MessageRender {
     /**

@@ -1,6 +1,6 @@
 package begin.spring.annotation;
 
-import begin.MessageRender;
+import begin.hello.MessageRender;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
