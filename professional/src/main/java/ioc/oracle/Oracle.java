@@ -1,4 +1,4 @@
-package ioc;
+package ioc.oracle;
 
 public interface Oracle {
     String defineMeaningOfLif();

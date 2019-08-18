@@ -6,6 +6,6 @@
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="oracle"
           name="wiseworm"
-          class="ioc.BookwormOracle"/>
+          class="ioc.oracle.BookwormOracle"/>
 </beans>
 
