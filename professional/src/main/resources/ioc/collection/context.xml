@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="Name"
+          class="ioc.collection.Name" c:_0="new Name"/>
+
+    <bean id="User"
+          class="ioc.collection.User">
+        <constructor-arg ref="Name"/>
+    </bean>
+
+    <bean id="ComputerXML"
+          class="ioc.collection.Computer">
+        <property name="users">
+            <map>
+                <entry key="User1">
+                    <ref bean="User"/>
+                </entry>
+                <!-- Я создал дополнительный класс Name и теперь ничего не работает, так как там походу идет
+                    <entry key="User2">
+                        Тут должен внедряться бин типа User
+                        <value>1</value>
+                    </entry>
+                -->
+            </map>
+        </property>
+        <property name="count">
+            <list>
+                <!-- <value>Number two</value> - Это не работает, так как не совпадают типы! -->
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+            </list>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="FirstKey">Properties</prop>
+                <prop key="SecondKey">Properties</prop>
+            </props>
+        </property>
+        <property name="set">
+            <set>
+                <value>Hello my Friend from Set</value>
+                <ref bean="User"></ref>
+                <ref bean="Name"/>
+            </set>
+        </property>
+    </bean>
+
+</beans>
