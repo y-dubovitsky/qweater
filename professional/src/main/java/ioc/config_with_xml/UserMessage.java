@@ -1,4 +1,4 @@
-package ioc.configwithxml;
+package ioc.config_with_xml;
 
 public interface UserMessage {
     String getMessage();

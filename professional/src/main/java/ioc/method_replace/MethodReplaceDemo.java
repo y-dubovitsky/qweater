@@ -1,4 +1,4 @@
-package ioc.methodreplace;
+package ioc.method_replace;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.util.StopWatch;
@@ -10,7 +10,7 @@ import org.springframework.util.StopWatch;
 public class MethodReplaceDemo {
     public static void main(String[] args) {
         GenericXmlApplicationContext context = new GenericXmlApplicationContext();
-        context.load("classpath:ioc/methodreplace/app-context-xml.xml");
+        context.load("classpath:ioc/method_replace/app-context-xml.xml");
         context.refresh();
 
         ReplacementTarget target = (ReplacementTarget) context.getBean("methodReplacerTarget");

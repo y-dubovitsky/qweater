@@ -1,7 +1,7 @@
-package ioc.configwithxml.config;
+package ioc.config_with_xml.config;
 
-import ioc.configwithxml.OutputMessage;
-import ioc.configwithxml.OutputMessageImpl;
+import ioc.config_with_xml.OutputMessage;
+import ioc.config_with_xml.OutputMessageImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 

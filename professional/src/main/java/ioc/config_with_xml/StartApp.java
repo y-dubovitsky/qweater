@@ -1,6 +1,6 @@
-package ioc.configwithxml;
+package ioc.config_with_xml;
 
-import ioc.configwithxml.config.Config;
+import ioc.config_with_xml.config.Config;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

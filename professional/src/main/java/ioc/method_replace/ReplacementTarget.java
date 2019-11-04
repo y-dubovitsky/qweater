@@ -1,4 +1,4 @@
-package ioc.methodreplace;
+package ioc.method_replace;
 
 public class ReplacementTarget {
 

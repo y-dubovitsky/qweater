@@ -6,7 +6,7 @@
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="methodReplacerTarget"
-          class="ioc.methodreplace.ReplacementTarget">
+          class="ioc.method_replace.ReplacementTarget">
         <replaced-method name="formatMessage"
                          replacer="methodReplacer">
             <arg-type>String</arg-type>
@@ -14,9 +14,9 @@
     </bean>
 
     <bean id="methodReplacer"
-          class="ioc.methodreplace.ClassMethodReplacer"/>
+          class="ioc.method_replace.ClassMethodReplacer"/>
 
     <bean id="standartTarget"
-    class="ioc.methodreplace.ReplacementTarget"/>
+    class="ioc.method_replace.ReplacementTarget"/>
 
 </beans>

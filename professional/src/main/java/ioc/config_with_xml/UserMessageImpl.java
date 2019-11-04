@@ -1,4 +1,4 @@
-package ioc.configwithxml;
+package ioc.config_with_xml;
 
 import java.io.BufferedReader;
 import java.io.IOException;

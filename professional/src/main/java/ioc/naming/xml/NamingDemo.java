@@ -1,4 +1,4 @@
-package ioc.naming;
+package ioc.naming.xml;
 
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.beans.factory.annotation.Qualifier;

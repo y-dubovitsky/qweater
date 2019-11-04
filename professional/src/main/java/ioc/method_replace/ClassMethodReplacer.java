@@ -1,4 +1,4 @@
-package ioc.methodreplace;
+package ioc.method_replace;
 
 import org.springframework.beans.factory.support.MethodReplacer;
 
