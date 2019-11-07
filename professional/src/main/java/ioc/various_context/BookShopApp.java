@@ -1,4 +1,4 @@
-package ioc.inherit;
+package ioc.various_context;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
@@ -9,7 +9,7 @@ public class BookShopApp {
     public static void main(String[] args) {
         // parent
         GenericXmlApplicationContext parent = new GenericXmlApplicationContext();
-        parent.load("classpath:ioc/inherit/parent.xml");
+        parent.load("classpath:ioc/various_context/parent.xml");
         parent.refresh();
 
         // child

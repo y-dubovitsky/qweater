@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan
+            base-package="ioc.inheritance" />
+
+    <!-- В этой конфигурации показано, как один бин наследует свойства другого бина -->
+
+    <bean id="parent" class="ioc.inheritance.Kid"
+          p:name="Father" p:age="45"/>
+
+    <!-- Наследует возраст(age) родителя -->
+    <bean id="child" class="ioc.inheritance.Kid"
+          p:name="Little Kid"
+          parent="parent"/>
+
+    <bean id="boy" class="ioc.inheritance.Boy"
+          p:name="This is a boy"
+          parent="parent"/>
+
+    <bean id="notRelation" class="ioc.inheritance.NotRelation"
+          p:name="NOT_RELATION"
+          parent="boy"/>
+
+</beans>

@@ -1,4 +1,4 @@
-package ioc.autowired;
+package ioc.autowired.xml;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
@@ -34,12 +34,12 @@ public class Target {
 
     public void setFooOne(Foo fooOne) {
         this.fooOne = fooOne;
-        System.out.println("setFooOne(Foo fooOne)");
+        System.out.println("setFooOne " + this.fooOne);
     }
 
     public void setFooTwo(Foo fooTwo) {
         this.fooTwo = fooTwo;
-        System.out.println("setFooTwo(Foo fooTwo)");
+        System.out.println("setFooTwo " + this.fooTwo);
     }
 
     public void setBarOne(Bar barOne) {

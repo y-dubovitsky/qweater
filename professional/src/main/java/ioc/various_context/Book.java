@@ -1,4 +1,4 @@
-package ioc.inherit;
+package ioc.various_context;
 
 public class Book {
 

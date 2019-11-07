@@ -7,7 +7,7 @@
                         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="book1"
-          class="ioc.inherit.Book"
+          class="ioc.various_context.Book"
           p:name-ref="parentName"/>
 
     <!-- Переписываем бин из родителя -->
@@ -15,12 +15,12 @@
           class="java.lang.String" c:_0="This name from child.xml"/>
 
     <bean id="book2"
-          class="ioc.inherit.Book"
+          class="ioc.various_context.Book"
           p:name-ref="childName"/>
 
     <!-- Ссылаемся на бин из родителя -->
     <bean id="book3"
-          class="ioc.inherit.Book">
+          class="ioc.various_context.Book">
         <property name="name">
             <ref parent="childName"/>
         </property>
