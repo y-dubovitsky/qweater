@@ -5,16 +5,22 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-        <bean name="terminatorRobotImpl" class="constructor.robotImpl.TerminatorRobotImpl">
+        <bean name="terminatorRobotImpl" class="chapter.constructor.TerminatorRobotImpl">
                 <constructor-arg ref="sonyHead"/>
                 <constructor-arg ref="dellHand"/>
                 <constructor-arg ref="appleLeg"/>
         </bean>
 
-        <bean name="liquidMetalRobotImpl" class="constructor.robotImpl.LiquidMetalRobotImpl">
+        <bean name="liquidMetalRobotImpl" class="chapter.constructor.LiquidMetalRobotImpl">
                 <property name="hand" ref="dellHand"/>
                 <property name="head" ref="sonyHead"/>
                 <property name="leg" ref="appleLeg"/>
+        </bean>
+
+        <bean name="getterSetterRobotImpl" class="chapter.getters_setters.GetterSetterRobotImpl">
+            <property name="head" ref="sonyHead"/>
+            <property name="leg" ref="appleLeg"/>
+            <property name="hand" ref="dellHand"/>
         </bean>
 
         <bean name="appleLeg" class="part.impl.AppleLeg"/>

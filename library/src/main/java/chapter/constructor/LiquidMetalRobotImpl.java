@@ -1,4 +1,4 @@
-package constructor.robotImpl;
+package chapter.constructor;
 
 import part.Hand;
 import part.Head;

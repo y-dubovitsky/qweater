@@ -1,7 +1,8 @@
+import chapter.getters_setters.GetterSetterRobotImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import constructor.robotImpl.LiquidMetalRobotImpl;
-import constructor.robotImpl.TerminatorRobotImpl;
+import chapter.constructor.LiquidMetalRobotImpl;
+import chapter.constructor.TerminatorRobotImpl;
 
 public class ApplicationContextStarting {
 
@@ -20,5 +21,9 @@ public class ApplicationContextStarting {
         liquidMetalRobot.doAction();
         liquidMetalRobot.purpose();
 
+//*        Getters and Setter example
+        GetterSetterRobotImpl getterSetterRobot = (GetterSetterRobotImpl) context.getBean("getterSetterRobotImpl");
+        getterSetterRobot.doAction();
+        getterSetterRobot.purpose();
     }
 }
