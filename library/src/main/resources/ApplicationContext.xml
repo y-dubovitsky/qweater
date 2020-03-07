@@ -67,6 +67,15 @@
 
         <bean name="specificDatabase" class="database.impl.SpecificDatabase"/>
 
+        <bean name="childRobotImpl" class="chapter.bean_inheritance.ChildRobotImpl" parent="parentRobotImpl"
+                p:flag="true"/>
+
+        <bean name="parentRobotImpl" abstract="true">
+                <constructor-arg ref="dellHand" />
+                <constructor-arg ref="sonyHead" />
+                <constructor-arg ref="appleLeg" />
+        </bean>
+
         <bean name="appleLeg" class="part.impl.AppleLeg"/>
         <bean name="dellHand" class="part.impl.DellHand"/>
         <bean name="sonyHead" class="part.impl.SonyHead"/>

@@ -1,3 +1,4 @@
+import chapter.bean_inheritance.ChildRobotImpl;
 import chapter.getters_setters.GetterSetterRobotImpl;
 import chapter.initialization_sequence.DependentRobotImpl;
 import chapter.livecycle_interfaces.LiveCycleInterfaceRobotImpl;
@@ -61,6 +62,10 @@ public class ApplicationContextStarting {
 //*         Depends-on
         DependentRobotImpl dependentRobot = (DependentRobotImpl) context.getBean("dependentRobotImpl");
         dependentRobot.doAction();
+
+//*        Bean Inheritance
+        ChildRobotImpl childRobot = (ChildRobotImpl) context.getBean("childRobotImpl");
+        childRobot.doAction();
     }
 
     private static void sout(Object o) {
