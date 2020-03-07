@@ -55,7 +55,6 @@ public class ApplicationContextStarting {
 //*        Live Cycle Interfaces
         LiveCycleInterfaceRobotImpl liveCycleInterfaceRobotImpl = (LiveCycleInterfaceRobotImpl) context.getBean("liveCycleInterfaceRobotImpl");
         liveCycleInterfaceRobotImpl.doAction();
-
     }
 
     private static void sout(Object o) {

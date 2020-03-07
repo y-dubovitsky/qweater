@@ -4,13 +4,10 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-        <!--Параметры для всех Бинов, например:-->
-
-        <!--default-init-method="init" -->
-        <!--default-lazy-init="true"-->
-        <!--default-destroy-method="destroy"-->
+        <!--XML с глобальными настройками-->
+        <!--<import resource="GlobalSettingsContext.xml"/>-->
 
         <bean name="terminatorRobotImpl" class="chapter.constructor.TerminatorRobotImpl">
                 <constructor-arg ref="sonyHead"/>
