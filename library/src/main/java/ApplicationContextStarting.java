@@ -1,4 +1,5 @@
 import chapter.getters_setters.GetterSetterRobotImpl;
+import chapter.initialization_sequence.DependentRobotImpl;
 import chapter.livecycle_interfaces.LiveCycleInterfaceRobotImpl;
 import chapter.params_order.ParamsOrderRobotImpl;
 import chapter.scope.ScopeRobotImpl;
@@ -55,6 +56,11 @@ public class ApplicationContextStarting {
 //*        Live Cycle Interfaces
         LiveCycleInterfaceRobotImpl liveCycleInterfaceRobotImpl = (LiveCycleInterfaceRobotImpl) context.getBean("liveCycleInterfaceRobotImpl");
         liveCycleInterfaceRobotImpl.doAction();
+
+
+//*         Depends-on
+        DependentRobotImpl dependentRobot = (DependentRobotImpl) context.getBean("dependentRobotImpl");
+        dependentRobot.doAction();
     }
 
     private static void sout(Object o) {

@@ -8,5 +8,8 @@
 
        default-init-method="init"
        default-lazy-init="true"
-       default-destroy-method="destroy"
-/>
+       default-destroy-method="destroy">
+
+    <bean class="chapter.livecycle_interfaces.PostProcessorRobotImpl"/>
+
+</beans>

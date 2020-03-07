@@ -61,7 +61,11 @@
               p:leg-ref="appleLeg"
         />
 
-        <bean class="chapter.livecycle_interfaces.PostProcessorRobotImpl"/>
+        <bean name="dependentRobotImpl" class="chapter.initialization_sequence.DependentRobotImpl" depends-on="specificDatabase"
+                p:database-ref="specificDatabase"
+        />
+
+        <bean name="specificDatabase" class="database.impl.SpecificDatabase"/>
 
         <bean name="appleLeg" class="part.impl.AppleLeg"/>
         <bean name="dellHand" class="part.impl.DellHand"/>
