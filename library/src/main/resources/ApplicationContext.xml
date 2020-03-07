@@ -6,6 +6,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+        <!--Параметры для всех Бинов, например:-->
+
+        <!--default-init-method="init" -->
+        <!--default-lazy-init="true"-->
+        <!--default-destroy-method="destroy"-->
+
         <bean name="terminatorRobotImpl" class="chapter.constructor.TerminatorRobotImpl">
                 <constructor-arg ref="sonyHead"/>
                 <constructor-arg ref="dellHand"/>
@@ -33,8 +39,27 @@
                 <property name="age" value="1234"/>
         </bean>
 
+        <bean name="singletonRobotImpl" class="chapter.scope.ScopeRobotImpl" scope="singleton" init-method="init" destroy-method="destroy">
+                <constructor-arg ref="dellHand" index="0"/>
+                <constructor-arg ref="sonyHead" index="1"/>
+                <constructor-arg ref="appleLeg" index="2"/>
+        </bean>
+
+        <!--Используется в качестве параметра объект, области видимости которого НЕ СИНГЛТОН-->
+        <bean name="singletonWithPrototypeRef" class="chapter.scope.ScopeRobotImpl" scope="singleton" init-method="init" destroy-method="destroy">
+                <constructor-arg ref="dellHand" index="0"/>
+                <constructor-arg ref="sonyHead" index="1"/>
+                <constructor-arg ref="toshibaLegPrototype" index="2"/>
+        </bean>
+
+        <bean name="prototypeRobotImpl" class="chapter.scope.ScopeRobotImpl" scope="prototype" init-method="init" destroy-method="destroy">
+                <constructor-arg ref="dellHand" index="0"/>
+                <constructor-arg ref="sonyHead" index="1"/>
+                <constructor-arg ref="appleLeg" index="2"/>
+        </bean>
+
         <bean name="appleLeg" class="part.impl.AppleLeg"/>
         <bean name="dellHand" class="part.impl.DellHand"/>
         <bean name="sonyHead" class="part.impl.SonyHead"/>
-
+        <bean name="toshibaLegPrototype" class="part.impl.ToshibaLeg" scope="prototype"/>
 </beans>

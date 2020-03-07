@@ -1,5 +1,6 @@
 import chapter.getters_setters.GetterSetterRobotImpl;
 import chapter.params_order.ParamsOrderRobotImpl;
+import chapter.scope.ScopeRobotImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import chapter.constructor.LiquidMetalRobotImpl;
@@ -31,5 +32,23 @@ public class ApplicationContextStarting {
         ParamsOrderRobotImpl paramsOrderRobot = (ParamsOrderRobotImpl) context.getBean("paramsOrderRobotImpl");
         paramsOrderRobot.purpose();
         paramsOrderRobot.doAction();
+
+//*        Scope and live cycle method
+        ScopeRobotImpl singletonRobotImpl = (ScopeRobotImpl) context.getBean("singletonRobotImpl");
+        System.out.println(singletonRobotImpl);
+        singletonRobotImpl = (ScopeRobotImpl) context.getBean("singletonRobotImpl");
+        System.out.println(singletonRobotImpl);
+
+        // Так как scope singleton, то и все поля будут одинаковы, несмотря на то, что у Leg scope - prototype
+        ScopeRobotImpl singletonWithPrototypeRef = (ScopeRobotImpl) context.getBean("singletonWithPrototypeRef");
+        System.out.println(singletonWithPrototypeRef.getLeg());
+        singletonWithPrototypeRef = (ScopeRobotImpl) context.getBean("singletonWithPrototypeRef");
+        System.out.println(singletonWithPrototypeRef.getLeg());
+
+        //! prototype scope : Каждый новый бин -> вызов init()
+        ScopeRobotImpl prototypeRobotImpl = (ScopeRobotImpl) context.getBean("prototypeRobotImpl");
+        System.out.println(prototypeRobotImpl);
+        prototypeRobotImpl = (ScopeRobotImpl) context.getBean("prototypeRobotImpl");
+        System.out.println(prototypeRobotImpl);
     }
 }
