@@ -67,14 +67,24 @@
 
         <bean name="specificDatabase" class="database.impl.SpecificDatabase"/>
 
-        <bean name="childRobotImpl" class="chapter.bean_inheritance.ChildRobotImpl" parent="parentRobotImpl"
-                p:flag="true"/>
+        <!--Bean inheritance start-->
+        <bean name="childRobotImpl" class="chapter.bean_inheritance.ChildRobotImpl" parent="constructorArgBean">
+                <constructor-arg name="flag" value="true"/>
+        </bean>
 
         <bean name="parentRobotImpl" abstract="true">
                 <constructor-arg ref="dellHand" />
                 <constructor-arg ref="sonyHead" />
                 <constructor-arg ref="appleLeg" />
         </bean>
+
+        <!--Такого бина вообще нет! Он просто для настройки-->
+        <bean id="constructorArgBean" abstract="true">
+                <constructor-arg ref="dellHand" />
+                <constructor-arg ref="sonyHead" />
+                <constructor-arg ref="appleLeg" />
+        </bean>
+        <!--Bean inheritance end-->
 
         <bean name="appleLeg" class="part.impl.AppleLeg"/>
         <bean name="dellHand" class="part.impl.DellHand"/>
