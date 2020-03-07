@@ -1,4 +1,5 @@
 import chapter.getters_setters.GetterSetterRobotImpl;
+import chapter.params_order.ParamsOrderRobotImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import chapter.constructor.LiquidMetalRobotImpl;
@@ -18,12 +19,17 @@ public class ApplicationContextStarting {
         }
 
         LiquidMetalRobotImpl liquidMetalRobot = (LiquidMetalRobotImpl) context.getBean("liquidMetalRobotImpl"); //! Тут используются Getters and Setters и настройки в .xml property name="hand" ref="dellHand"...
-        liquidMetalRobot.doAction();
         liquidMetalRobot.purpose();
+        liquidMetalRobot.doAction();
 
 //*        Getters and Setter example
         GetterSetterRobotImpl getterSetterRobot = (GetterSetterRobotImpl) context.getBean("getterSetterRobotImpl");
-        getterSetterRobot.doAction();
         getterSetterRobot.purpose();
+        getterSetterRobot.doAction();
+
+//*        Params in constructors and set params by setters
+        ParamsOrderRobotImpl paramsOrderRobot = (ParamsOrderRobotImpl) context.getBean("paramsOrderRobotImpl");
+        paramsOrderRobot.purpose();
+        paramsOrderRobot.doAction();
     }
 }
