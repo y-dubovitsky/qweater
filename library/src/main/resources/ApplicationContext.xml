@@ -58,6 +58,14 @@
                 <constructor-arg ref="appleLeg" index="2"/>
         </bean>
 
+        <bean name="liveCycleInterfaceRobotImpl" class="chapter.livecycle_interfaces.LiveCycleInterfaceRobotImpl"
+              p:hand-ref="dellHand"
+              p:head-ref="sonyHead"
+              p:leg-ref="appleLeg"
+        />
+
+        <bean class="chapter.livecycle_interfaces.PostProcessorRobotImpl"/>
+
         <bean name="appleLeg" class="part.impl.AppleLeg"/>
         <bean name="dellHand" class="part.impl.DellHand"/>
         <bean name="sonyHead" class="part.impl.SonyHead"/>

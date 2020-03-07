@@ -1,4 +1,5 @@
 import chapter.getters_setters.GetterSetterRobotImpl;
+import chapter.livecycle_interfaces.LiveCycleInterfaceRobotImpl;
 import chapter.params_order.ParamsOrderRobotImpl;
 import chapter.scope.ScopeRobotImpl;
 import org.springframework.context.ApplicationContext;
@@ -35,20 +36,30 @@ public class ApplicationContextStarting {
 
 //*        Scope and live cycle method
         ScopeRobotImpl singletonRobotImpl = (ScopeRobotImpl) context.getBean("singletonRobotImpl");
-        System.out.println(singletonRobotImpl);
+        sout(singletonRobotImpl);
         singletonRobotImpl = (ScopeRobotImpl) context.getBean("singletonRobotImpl");
-        System.out.println(singletonRobotImpl);
+        sout(singletonRobotImpl);
 
         // Так как scope singleton, то и все поля будут одинаковы, несмотря на то, что у Leg scope - prototype
         ScopeRobotImpl singletonWithPrototypeRef = (ScopeRobotImpl) context.getBean("singletonWithPrototypeRef");
-        System.out.println(singletonWithPrototypeRef.getLeg());
+        sout(singletonWithPrototypeRef.getLeg());
         singletonWithPrototypeRef = (ScopeRobotImpl) context.getBean("singletonWithPrototypeRef");
-        System.out.println(singletonWithPrototypeRef.getLeg());
+        sout(singletonWithPrototypeRef.getLeg());
 
         //! prototype scope : Каждый новый бин -> вызов init()
         ScopeRobotImpl prototypeRobotImpl = (ScopeRobotImpl) context.getBean("prototypeRobotImpl");
-        System.out.println(prototypeRobotImpl);
+        sout(prototypeRobotImpl);
         prototypeRobotImpl = (ScopeRobotImpl) context.getBean("prototypeRobotImpl");
-        System.out.println(prototypeRobotImpl);
+        sout(prototypeRobotImpl);
+
+//*        Live Cycle Interfaces
+        LiveCycleInterfaceRobotImpl liveCycleInterfaceRobotImpl = (LiveCycleInterfaceRobotImpl) context.getBean("liveCycleInterfaceRobotImpl");
+        liveCycleInterfaceRobotImpl.doAction();
+
+    }
+
+    private static void sout(Object o) {
+        System.out.println(o);
+        System.out.println("______________________________________");
     }
 }
