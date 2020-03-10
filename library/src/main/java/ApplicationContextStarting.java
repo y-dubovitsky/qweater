@@ -1,4 +1,7 @@
 import chapter.bean_inheritance.ChildRobotImpl;
+import chapter.collection.CollectionRobot;
+import chapter.collection.CollectionListRobotImpl;
+import chapter.collection.CollectionRobotMapImpl;
 import chapter.getters_setters.GetterSetterRobotImpl;
 import chapter.initialization_sequence.DependentRobotImpl;
 import chapter.livecycle_interfaces.LiveCycleInterfaceRobotImpl;
@@ -66,6 +69,14 @@ public class ApplicationContextStarting {
 //*        Bean Inheritance
         ChildRobotImpl childRobot = (ChildRobotImpl) context.getBean("childRobotImpl");
         childRobot.doAction();
+
+//*        Collection
+        CollectionRobot collectionOfRobots = (CollectionListRobotImpl) context.getBean("robotCollection");
+        collectionOfRobots.allRobotsDoWork();
+
+        collectionOfRobots = (CollectionRobotMapImpl) context.getBean("robotCollectionMap");
+        collectionOfRobots.allRobotsDoWork();
+
     }
 
     private static void sout(Object o) {

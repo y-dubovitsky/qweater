@@ -62,7 +62,7 @@
         />
 
         <bean name="dependentRobotImpl" class="chapter.initialization_sequence.DependentRobotImpl" depends-on="specificDatabase"
-                p:database-ref="specificDatabase"
+              p:database-ref="specificDatabase"
         />
 
         <bean name="specificDatabase" class="database.impl.SpecificDatabase"/>
@@ -85,6 +85,34 @@
                 <constructor-arg ref="appleLeg" />
         </bean>
         <!--Bean inheritance end-->
+
+        <!--Collection start-->
+        <bean name="robotCollection" class="chapter.collection.CollectionListRobotImpl">
+                <property name="robotCollection">
+                        <list>
+                                <bean class="chapter.collection.RobotFromCollection" p:field="Earth"/>
+                                <ref bean="liquidMetalRobotImpl"/>
+                                <ref bean="terminatorRobotImpl"/>
+                                <bean name="collectedRobot" class="chapter.collection.RobotFromCollection">
+                                        <property name="field" value="Moon"/>
+                                </bean>
+                        </list>
+                </property>
+        </bean>
+
+        <bean name="robotCollectionMap" class="chapter.collection.CollectionRobotMapImpl">
+                <property name="robotMap">
+                        <map>
+                                <entry key="First" value-ref="terminatorRobotImpl"/>
+                                <entry key="Second">
+                                        <bean name="robotFromMap" class="chapter.collection.RobotFromCollection">
+                                                <property name="field" value="Field"/>
+                                        </bean>
+                                </entry>
+                        </map>
+                </property>
+        </bean>
+        <!--Collection end-->
 
         <bean name="appleLeg" class="part.impl.AppleLeg"/>
         <bean name="dellHand" class="part.impl.DellHand"/>
