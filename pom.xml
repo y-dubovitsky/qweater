@@ -79,5 +79,6 @@
     <module>professional</module>
     <module>library</module>
     <module>lib</module>
+      <module>security</module>
   </modules>
 </project>
