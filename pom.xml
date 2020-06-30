@@ -78,7 +78,6 @@
     <module>in-action</module>
     <module>professional</module>
     <module>library</module>
-    <module>lib</module>
-      <module>security</module>
+    <module>security</module>
   </modules>
 </project>
