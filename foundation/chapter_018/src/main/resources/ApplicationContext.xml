@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <!--        Создается Бин с параметром autowire="byType" и этот Бин подхватывает все Бины подходящие по типу для коллекций и инжектит эти бины в коллекции-->
+        <bean id="pcPool3" class="impls.computer.PcPool" autowire="byType"/>
+
+        <!--        Создается Бин и в него сетаются все коллекции по ИМЕНИ-->
+        <bean id="pcPool2" class="impls.computer.PcPool" autowire="byName"/>
+        <bean id="list" class="java.util.ArrayList">
+                <constructor-arg>
+                        <list>
+                                <bean class="impls.computer.Pc"/>
+                                <bean class="impls.computer.Pc"/>
+                                <bean class="impls.computer.Pc"/>
+                                <bean class="impls.computer.Pc"/>
+                        </list>
+                </constructor-arg>
+        </bean>
+        <bean id="map" class="java.util.HashMap">
+                <constructor-arg>
+                        <map value-type="impls.computer.Pc">
+                                <entry key="First" value-ref="pc1"/>
+                                <entry key="Second" value-ref="pc2"/>
+                        </map>
+                </constructor-arg>
+        </bean>
+        <bean id="set" class="java.util.HashSet">
+                <constructor-arg>
+                        <set>
+                                <bean class="impls.computer.Laptop"/>
+                                <bean class="impls.computer.Laptop"/>
+                                <bean class="impls.computer.Laptop"/>
+                                <bean class="impls.computer.Laptop"/>
+                        </set>
+                </constructor-arg>
+        </bean>
+
+        <!--        Бин pcPool просто берет свою конфигурацию из другого Бина, как такогого связывания нет-->
+        <bean id="pcPool" class="impls.computer.PcPool" parent="computerCollection"/>
+        <bean id="computerCollection" abstract="true">
+                <property name="list">
+                        <list>
+                                <bean class="impls.computer.Pc"/>
+                                <bean class="impls.computer.Pc"/>
+                                <bean class="impls.computer.Pc"/>
+                        </list>
+                </property>
+        </bean>
+
+        <bean id="pc1" class="impls.computer.Pc"/>
+        <bean id="pc2" class="impls.computer.Pc"/>
+        <bean id="pc3" class="impls.computer.Pc"/>
+        <bean id="pc4" class="impls.computer.Pc"/>
+        <bean id="pc5" class="impls.computer.Pc"/>
+</beans>

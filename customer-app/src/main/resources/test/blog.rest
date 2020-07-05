@@ -1,0 +1,4 @@
+GET http://localhost:9966/api/v1/customers/1
+Accept: application/json
+
+###

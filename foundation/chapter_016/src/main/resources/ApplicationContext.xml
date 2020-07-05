@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <!--        Создается Бин с внедрением-->
+        <bean id="pcPool" class="impls.computer.PcPool">
+                <property name="computerCollection">
+                        <list>
+                                <bean class="impls.computer.Pc"/>
+                                <bean class="impls.computer.Pc"/>
+                                <bean class="impls.computer.Laptop"/>
+                                <bean class="impls.computer.Pc"/>
+                                <bean class="impls.computer.Laptop"/>
+                        </list>
+                </property>
+        </bean>
+
+        <bean id="pcPool2" class="impls.computer.PcPool">
+                <constructor-arg name="computerCollection" index="0">
+                        <list>
+                                <bean class="impls.computer.Pc">
+                                        <constructor-arg name="keyboard" index="0" ref="sonyKeyboard"/>
+                                        <constructor-arg name="mouse" index="1" ref="oclickMouse"/>
+                                </bean>
+                        </list>
+                </constructor-arg>
+                <constructor-arg name="computerMap" index="1">
+                        <map>
+                                <entry key="First Key" value-ref="laptop"/>
+                                <entry key="Second Key" value-ref="pc"/>
+                        </map>
+                </constructor-arg>
+        </bean>
+
+        <bean id="pc" class="impls.computer.Pc"/>
+        <bean id="laptop" class="impls.computer.Laptop"/>
+
+        <bean id="logitechKeyboard" class="impls.keyboard.LogitechKeyboard"/>
+        <bean id="sonyKeyboard" class="impls.keyboard.SonyKeyboard"/>
+        <bean id="lgMouse" class="impls.mouse.LgMouse"/>
+        <bean id="oclickMouse" class="impls.mouse.OclickMouse"/>
+</beans>

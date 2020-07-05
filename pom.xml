@@ -79,5 +79,6 @@
     <module>professional</module>
     <module>library</module>
     <module>security</module>
+    <module>customer-app</module>
   </modules>
 </project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="pc" class="impls.computer.Pc" parent="abstractConfigBean"/>
+
+        <!--        Это просто Бин с настройками, а не реальный объект-->
+        <bean id="abstractConfigBean" abstract="true">
+                <property name="mouse" ref="oclickMouse"/>
+                <property name="keyboard" ref="sonyKeyboard"/>
+        </bean>
+
+        <bean id="oclickMouse" class="impls.mouse.OclickMouse"/>
+        <bean id="lgMouse" class="impls.mouse.LgMouse"/>
+        <bean id="sonyKeyboard" class="impls.keyboard.SonyKeyboard"/>
+        <bean id="logitechKeyboard" class="impls.keyboard.LogitechKeyboard"/>
+</beans>

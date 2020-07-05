@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="humanPainter" class="space.dubovitsky.impls.HumanPainter">
+        <constructor-arg ref="headSick"/>
+        <constructor-arg ref="hairBrown"/>
+        <constructor-arg ref="legStrong"/>
+    </bean>
+
+    <!--    Сперва создаются эти бины, затем они внедряются через конструктор в бин humanPainter-->
+    <bean id="hairBrown" class="space.dubovitsky.impls.HairBrown"/>
+    <bean id="headSick" class="space.dubovitsky.impls.HeadSick"/>
+    <bean id="legStrong" class="space.dubovitsky.impls.LegStrong"/>
+
+</beans>

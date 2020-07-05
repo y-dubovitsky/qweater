@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table cellspacing="2" border="1" cellpadding="5" width="600">
+    <tr>
+        <th>Id</th>
+        <th>Fio</th>
+        <th>Date</th>
+    </tr>
+    <tr th:each="a : ${content}">
+        <td th:text="${a.getId()}">Id</td>
+        <td th:text="${a.getFio()}">FIO</td>
+        <td th:text="${a.getDate()}">Date</td>
+    </tr>
+</table>
+</body>
+</html>

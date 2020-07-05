@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    Бин создается через конструктор, затем через сеттеры внедряются значения полей-->
+    <bean id="mazdaCar" class="space.dubovitsky.impls.car.MazdaCar">
+        <constructor-arg value="12" type="int" index="0"/>
+        <constructor-arg value="MAtthey" type="java.lang.String" index="1"/>
+
+        <property name="body" ref="sedanBody"/>
+        <property name="color" ref="greenColor"/>
+        <property name="number" ref="rusNumber"/>
+    </bean>
+
+    <!--    Бин создается через свойства и используется пространство имен p-->
+    <bean id="ladaCar" class="space.dubovitsky.impls.car.LadaCar"
+          p:body-ref="sedanBody"
+          p:color-ref="redColor"
+          p:number-ref="rusNumber"
+          p:count="12"
+          p:owner="Antilis Aton">
+    </bean>
+
+    <!--    Бин создается через конструктор, используя с неймспейс, и внедряются другие бины серез свойства-->
+    <bean id="mazdaCarNameSpaceC" class="space.dubovitsky.impls.car.MazdaCar"
+          c:_0="1"
+          c:_1="mazdaCarNameSpaceC"
+          p:number-ref="rusNumber">
+
+        <property name="color" ref="redColor"/>
+        <property name="body" ref="hatchbackBody"/>
+    </bean>
+
+    <!--    Бины для внедрения-->
+    <bean id="greenColor" class="space.dubovitsky.impls.color.GreenColor"/>
+    <bean id="redColor" class="space.dubovitsky.impls.color.RedColor"/>
+    <bean id="hatchbackBody" class="space.dubovitsky.impls.body.HatchbackBody"/>
+    <bean id="sedanBody" class="space.dubovitsky.impls.body.SedanBody"/>
+    <bean id="kzNumber" class="space.dubovitsky.impls.number.KzNumber"/>
+    <bean id="rusNumber" class="space.dubovitsky.impls.number.RusNumber"/>
+
+
+</beans>
