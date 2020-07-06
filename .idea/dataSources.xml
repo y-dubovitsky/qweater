@@ -46,5 +46,11 @@ jdbc:mysql://localhost:3306/qweater</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5433/jwt_app</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="crud_app@localhost" uuid="798924ee-60c4-417a-ac1e-f257976ee93a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5433/crud_app</jdbc-url>
+    </data-source>
   </component>
 </project>
