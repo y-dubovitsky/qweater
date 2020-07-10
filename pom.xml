@@ -76,10 +76,16 @@
 
   <modules>
     <module>in-action</module>
-    <module>professional</module>
     <module>library</module>
     <module>security</module>
-      <module>specialist</module>
+    <module>specialist</module>
     <module>customer-app</module>
+    <module>crud-app</module>
+    <module>customer-app</module>
+    <module>foundation</module>
+    <module>jwt-app</module>
+    <module>spring-professional</module>
+    <module>spring-security-app</module>
+    <module>thymeleaf</module>
   </modules>
 </project>

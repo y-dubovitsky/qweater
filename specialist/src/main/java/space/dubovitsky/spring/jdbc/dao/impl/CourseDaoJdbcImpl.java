@@ -11,7 +11,7 @@ import java.util.List;
  *
  * Шаблонный метод — это поведенческий паттерн, задающий скелет алгоритма в суперклассе и заставляющий подклассы реализовать конкретные шаги этого алгоритма.
  */
-public class CourseDaoImpl implements CourseDao {
+public class CourseDaoJdbcImpl implements CourseDao {
 
     private final static String SQL_SELECT_ALL_COURSES =
             "Select id, title, length, description from course";
