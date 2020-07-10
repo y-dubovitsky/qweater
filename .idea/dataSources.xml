@@ -34,5 +34,23 @@ jdbc:mysql://localhost:3306/qweater</remarks>
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="customer_app@localhost" uuid="d7450642-ff98-494e-9d24-223ac42ad048">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5433/customer_app</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="jwt_app@localhost" uuid="8c283400-e507-45df-8240-5ca970e5b9b5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5433/jwt_app</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="crud_app@localhost" uuid="798924ee-60c4-417a-ac1e-f257976ee93a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5433/crud_app</jdbc-url>
+    </data-source>
   </component>
 </project>

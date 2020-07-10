@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="initMethod"
+       default-destroy-method="destroyMethod"
+       default-lazy-init="true">
+
+    <!--    Данный бин в своем классе имеет два методы, которые при помощи конфигурации запускаются при создании и удалении бина. Данный метод вызывается ПОСЛЕ вызова конструктора и ПОСЛЕ вызова сеттеров!-->
+    <bean id="mazdaCar" class="space.dubovitsky.impls.car.MazdaCar" scope="prototype" destroy-method="destroyMethod" init-method="initMethod">
+        <constructor-arg ref="hatchbackBody" index="0"/>
+        <constructor-arg ref="redColor" index="1"/>
+        <constructor-arg ref="rusNumber" index="2"/>
+        <constructor-arg value="13" name="count" type="int" index="3"/>
+
+        <property name="owner" value="Matthey"/>
+    </bean>
+
+    <bean id="ladaCar" class="space.dubovitsky.impls.car.LadaCar" scope="singleton"
+          c:_0-ref="hatchbackBody"
+          c:_1-ref="redColor"
+          c:_2-ref="rusNumber"
+          c:_3="123"
+          c:_4="Matthey">
+    </bean>
+
+    <!--    Данный бин в своем классе реализует два интерфейся InitializingBean, DisposableBean-->
+    <bean id="mercedesCar" class="space.dubovitsky.impls.car.MercedesCar" destroy-method="destroyMethod" init-method="afterPropertiesSet"
+          c:_0-ref="hatchbackBody"
+          c:_1-ref="redColor"
+          c:_2-ref="rusNumber"
+          c:_3="123"
+          c:_4="Matthey">
+    </bean>
+
+    <!--    Данный класс реализует BeanPostProcessor, методы из данного класса вызываются для ВСЕХ бинов. И как следует из названия, методы вызываются после вызова конструктора и сеттера и после init метода -->
+    <bean class="space.dubovitsky.impls.PostProcessor"/>
+
+    <!--    Бины для внедрения-->
+    <bean id="greenColor" class="space.dubovitsky.impls.color.GreenColor"/>
+    <bean id="redColor" class="space.dubovitsky.impls.color.RedColor"/>
+    <bean id="hatchbackBody" class="space.dubovitsky.impls.body.HatchbackBody"/>
+    <bean id="sedanBody" class="space.dubovitsky.impls.body.SedanBody"/>
+    <bean id="kzNumber" class="space.dubovitsky.impls.number.KzNumber"/>
+    <bean id="rusNumber" class="space.dubovitsky.impls.number.RusNumber"/>
+
+</beans>

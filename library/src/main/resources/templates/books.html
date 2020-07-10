@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <table title="all-books" cellspacing="2" border="1" cellpadding="5" width="600">
+            <caption>Таблица all-books</caption>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author Name</th>
+            </tr>
+            <tr th:each="a : ${books}">
+                <td th:text="${a.getId()}">Id</td>
+                <td th:text="${a.getName()}">Name</td>
+                <td th:text="${a.getAuthor().getFio()}">Author name</td>
+            </tr>
+        </table>
+        <table cellspacing="2" border="1" cellpadding="5" width="600">
+            <caption>Таблица books-without</caption>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author Name</th>
+            </tr>
+            <tr th:each="a : ${booksWithout}">
+                <td th:text="${a.getId()}">Id</td>
+                <td th:text="${a.getName()}">Name</td>
+                <td th:text="${a.getAuthor().getFio()}">Author name</td>
+            </tr>
+        </table>
+        <table cellspacing="2" border="1" cellpadding="5" width="600">
+            <caption>Таблица books-by-Genre</caption>
+            <tr>
+                <th>Id</th>
+                <th>Genre</th>
+                <th>Name</th>
+                <th>Author Name</th>
+            </tr>
+            <tr th:each="a : ${byGenre}">
+                <td th:text="${a.getId()}">Id</td>
+                <td th:text="${a.getGenre().getName()}">Genre</td>
+                <td th:text="${a.getName()}">Name</td>
+                <td th:text="${a.getAuthor().getFio()}">Author name</td>
+            </tr>
+        </table>
+    </body>
+</html>

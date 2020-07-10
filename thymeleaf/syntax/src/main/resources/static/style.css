@@ -1,0 +1,26 @@
+b {
+    color: green;
+    text-transform: uppercase;
+}
+
+.container {
+    border: 4px double black; /* Параметры границы */
+    background: lightblue; /* Цвет фона */
+    padding: 10px; /* Поля вокруг текста */
+    margin: 5px;
+}
+
+.text-background {
+    background: white;
+}
+
+.text-class {
+    margin: 0;
+    border-top: 5px solid #EAF9F9;
+    border-bottom: 5px solid #EAF9F9;
+    color: #3A3C55;
+    padding: 30px 30px 30px 90px;
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}

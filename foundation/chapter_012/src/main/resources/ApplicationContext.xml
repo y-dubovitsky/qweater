@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Импортировали другой xml с конфигурациями-->
+    <import resource="MyBeanPostProcessorContext.xml"/>
+
+    <!--    Этот Бин зависит от id="pc" и не будет создан, пока не будет создан id="pc" Бин-->
+    <bean id="laptop" class="impls.computer.Laptop" depends-on="pc"
+          c:_0-ref="sonyKeyboard"
+          c:_1-ref="lgMouse"
+    />
+
+    <bean id="pc" class="impls.computer.Pc"
+          p:power="Disel Power">
+
+        <property name="keyboard" ref="sonyKeyboard"/>
+        <property name="mouse" ref="lgMouse"/>
+    </bean>
+
+    <bean id="logitechKeyboard" class="impls.keyboard.LogitechKeyboard"/>
+    <bean id="sonyKeyboard" class="impls.keyboard.SonyKeyboard"/>
+    <bean id="lgMouse" class="impls.mouse.LgMouse"/>
+
+    <!--    В этом классе я не создавал конструктор по умолчанию явно, но... Насколько я знаю, если у класса нет явного конструктора, то он будет создан за глазами-->
+    <bean id="oclickMouse" class="impls.mouse.OclickMouse"/>
+
+</beans>

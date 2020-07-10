@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SyntaxThymeleaf</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+    <body>
+        <div class="container">
+            <b>1.th:value</b>
+            <input id="first" type="text" value="Matthey" th:value="${firstValue}">
+        </div>
+        <div class="container">
+            <b>2.th:text</b>
+            <p th:text="${secondValue}">This text will be changed</p>
+        </div>
+        <div class="container">
+            <b>3. Object</b>
+            <p th:text="${object.getName()}">???</p>
+            <p th:text="${object.getAge()}">???</p>
+            <p th:text="${object['name']}">???</p>
+            <p th:text="${object.getUserInfo()}">???</p>
+        </div>
+        <div class="container">
+            <b>4. Map</b>
+            <p th:text="${userMap.User.getName()}">???</p>
+            <p th:text="${userMap['User'].getName()}">???</p>
+        </div>
+        <div class="container">
+            <b>5. List</b>
+            <p th:text="${userList[2].getName()}">????</p>
+        </div>
+        <div class="container" th:object="${object}">
+            <b>6. Asterix syntax</b>
+            <span th:text="*{name}">???</span>
+            <span th:text="*{gender.name()}">???</span>
+            <span th:text="*{getUserInfo()}">???</span>
+        </div>
+        <div class="container">
+            <b>7.0 Link absolute @{ }</b>
+            <a th:href="@{http://localhost:8080/syntax}">absolute path</a>
+            <br>
+            <b>7.1 Link relative @{ }</b>
+            <a th:href="@{/syntax}">relative path</a>
+            <br>
+            <b>7.2 Link relative with param @{ }</b>
+            <a th:href="@{/syntax(param=${firstValue})}">relative path with param</a>
+            <br>
+            <b>7.3 Link relative with param @{ }</b>
+            <a th:href="@{/syntax(param=${firstValue}, var=${secondValue})}">relative path with 2 param</a>
+            <br>
+            <b>7.4 Link relative with param @{ }</b>
+            <a th:href="@{/syntax(param=${arrayParam})}">relative path with LIST param</a>
+            <br>
+            <b>7.5 Link relative with path param @{ }</b>
+            <a th:href="@{/syntax/{path}/bla/bla/bla/(path = ${'hardcode-value'})}">relative path with path param</a>
+        </div>
+        <div class="container">
+            <b>8. Message expression</b>
+            <p th:text="#{custom.property}">Cant touch this</p> <!-- Не работает -->
+        </div>
+        <div class="container">
+            <b>9. Math operation</b>
+            <span th:text="${1 > 2}"></span>
+            <br>
+            <span th:text="${1 > -2}"></span>
+            <br>
+            <span th:text="${1 == 1}"></span>
+            <br>
+            <span th:text="${1+1}"></span>
+            <br>
+            <span th:text="${1*100}"></span>
+            <br>
+            <span th:text="${1/100}"></span>
+            <br>
+            <span th:text="${object != null ? object.getName() : 'object is null'}"></span>
+        </div>
+        <div class="container">
+            <b>10. Object to String</b>
+            <p th:text="|${object}|">Something new</p>
+        </div>
+        <div class="container">
+            <b>11. Attributes</b>
+            <p>Input some text: <input type="text" th:attr="value=${value}"></p>
+            <p>Input some text: <input type="text" th:attr="value=${value}, style='color:green'"></p>
+            <b>11.1 Append</b>
+            <label for="append">Append attr value</label>
+            <input id="append" type="text" class="text-background" th:attrappend="class=${' text-class'}">
+            <br>
+            <b>11.2 Each</b>
+            <table border="1">
+                <caption>Таблица пользователей</caption>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Info</th>
+                    <th>Index</th>
+                    <th>Index.Index</th>
+                </tr>
+                <tr th:each="user, index : ${userList}">
+                    <td th:text="${user.getName()}">???</td>
+                    <td th:text="${user.getAge() == 345 ? 345 : 'young lady'}">???</td>
+                    <td th:text="${user.getGender().name()}">???</td>
+                    <td th:text="${user.getUserInfo()}">???</td>
+                    <td th:text="${index}">???</td>
+                    <td th:text="${index.index}">???</td>
+                </tr>
+            </table>
+        </div>
+        <div class="container">
+            <b>12 th: if</b>
+            <div th:if="${userList.size() > 10}">
+                <h3>div th:if="${userList.size() > 10</h3>
+            </div>
+            <div th:unless="${userMap.keySet().size() > 5}"> <!-- Если не -->
+                <h3>div th:unless="${userMap.keySet().size() > 5}</h3>
+            </div>
+        </div>
+        <div class="container">
+            <b>13 th: switch</b>
+            <div th:switch="${userList.get(1).getAge()}">
+                <p th:case="12" th:text="12">??</p>
+                <p th:case="${userList.get(1).getAge()}" th:text="${userList.get(1).getAge() + ' отработала вторая строка'}">??</p>
+            </div>
+        </div>
+        <script>
+            var jsFunction = function() {
+                alert("Hello from Js function!");
+            }
+        </script>
+        <div class="container">
+            <b>13 th:onclick (JS Function invoke)</b>
+            <button type="button" th:onclick="'javascript:jsFunction()'">Submit</button>
+        </div>
+        <div class="container">
+            <b>14 th:block (th:block - Как контейнер, который не видео в DOM). Полезен для логики в объявлении блока</b>
+            <th:block th:each="u, index : ${userList}">
+                <p th:text="${u.name} + ' ' + ${index.index}">???</p>
+            </th:block>
+        </div>
+    </body>
+</html>

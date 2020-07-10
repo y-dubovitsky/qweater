@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!--    Включена поддержка аннотация-->
+    <context:annotation-config/>
+
+    <!--    Импортирование .xml файлов с конфигурациями-->
+    <import resource="HairContext.xml"/>
+    <import resource="HeadContext.xml"/>
+    <import resource="LegContext.xml"/>
+
+    <!--    Бин, с автоматическим связыванием, все параметры берутся из родительского Бина-->
+    <bean id="humanPainter" class="space.dubovitsky.impls.HumanPainter"/>
+
+    <!--    Невозможно создать Бин от абстрактного класса, если не указать атрибут abstract="true". Такой Бин может служить для конфигурирования других бинов-->
+    <bean class="space.dubovitsky.impls.AbstractHuman" abstract="true"/>
+
+    <bean class="java.lang.String">
+        <constructor-arg value="Matthey Ultimation Onlinius"/>
+    </bean>
+
+    <!--    Если не поставить атрибут autowire-candidate="false" -> org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'humanPainter'-->
+    <bean name="ultimate" class="java.lang.String" autowire-candidate="false">
+        <constructor-arg value="Noone live forever"/>
+    </bean>
+
+</beans>
