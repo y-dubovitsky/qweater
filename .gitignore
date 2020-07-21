@@ -23,6 +23,7 @@ hs_err_pid*
 
 # Other
 target
+out
 .idea
 .gitignore
 .settings
