@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation=
-               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="messageProvider" class="space.dubovitsky.ioc.component.impl.MessageProviderImpl"/>
+    <context:component-scan base-package="space.dubovitsky.ioc"/>
 
-    <bean id="messageRender" class="space.dubovitsky.ioc.component.impl.MessageRenderImpl">
-        <constructor-arg name="messageProvider" ref="messageProvider"/>
-    </bean>
+    <!--<bean id="messageProvider" class="space.dubovitsky.ioc.component.impl.MessageProviderImpl"/>-->
+
+    <!--<bean id="messageRender" class="space.dubovitsky.ioc.component.impl.MessageRenderImpl">-->
+        <!--<constructor-arg name="messageProvider" ref="messageProvider"/>-->
+    <!--</bean>-->
 
 </beans>

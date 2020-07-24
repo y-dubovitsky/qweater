@@ -1,14 +1,16 @@
 package space.dubovitsky.ioc;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import space.dubovitsky.ioc.component.MessageRender;
-import space.dubovitsky.ioc.config.BeanConfig;
 
+/**
+ * Point of entry
+ */
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanConfig.class);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("app-context.xml");
         MessageRender messageRender = applicationContext.getBean("messageRender", MessageRender.class);
 
         messageRender.render();
