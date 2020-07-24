@@ -23,5 +23,6 @@ Project structure:
 + planning-boot-app 
 > Spring Boot + Spring Security + JPA + Thymeleaf
 + thymeleaf
++ doit
 
 

@@ -20,6 +20,6 @@
     <module>spring-professional</module>
     <module>spring-security-app</module>
     <module>thymeleaf</module>
-      <module>doit</module>
+    <module>doit</module>
   </modules>
 </project>
