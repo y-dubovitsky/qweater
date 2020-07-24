@@ -18,7 +18,7 @@ public class MainController {
 
     @GetMapping("/request-param")
     public String requestParam(
-            @RequestParam(required = false, defaultValue = "Guest") String name,
+            @RequestParam(value = "name", required = false, defaultValue = "Guest") String name,
             Model model
     ) {
         model.addAttribute("name", name);
