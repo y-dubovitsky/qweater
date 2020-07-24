@@ -9,6 +9,9 @@ public class User {
     private int age;
     private boolean sex;
 
+    public User() {
+    }
+
     public User(String name, int age, boolean sex) {
         this.name = name;
         this.age = age;
