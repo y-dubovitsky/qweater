@@ -1,4 +1,7 @@
-package space.dubovitsky.ioc;
+package space.dubovitsky.ioc.component.impl;
+
+import space.dubovitsky.ioc.component.MessageProvider;
+import space.dubovitsky.ioc.component.MessageRender;
 
 public class MessageRenderImpl implements MessageRender {
 

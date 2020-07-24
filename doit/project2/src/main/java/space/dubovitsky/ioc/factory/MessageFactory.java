@@ -1,4 +1,7 @@
-package space.dubovitsky.ioc;
+package space.dubovitsky.ioc.factory;
+
+import space.dubovitsky.ioc.component.MessageProvider;
+import space.dubovitsky.ioc.component.MessageRender;
 
 import java.io.InputStream;
 import java.util.Properties;

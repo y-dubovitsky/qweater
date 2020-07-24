@@ -1,4 +1,4 @@
-package space.dubovitsky.ioc;
+package space.dubovitsky.ioc.component;
 
 public interface MessageRender {
 

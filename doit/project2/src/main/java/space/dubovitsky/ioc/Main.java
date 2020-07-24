@@ -1,10 +1,14 @@
 package space.dubovitsky.ioc;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import space.dubovitsky.ioc.component.MessageRender;
+
 public class Main {
 
     public static void main(String[] args) {
-        MessageProvider messageProvider = MessageFactory.getMessageProvider();
-        MessageRender messageRender = MessageFactory.getMessageRender();
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("app-context.xml");
+        MessageRender messageRender = applicationContext.getBean("messageRender", MessageRender.class);
 
         messageRender.render();
     }
