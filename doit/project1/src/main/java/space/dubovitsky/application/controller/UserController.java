@@ -2,9 +2,11 @@ package space.dubovitsky.application.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import space.dubovitsky.application.entity.User;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,30 +25,22 @@ public class UserController {
         return "user-list";
     }
 
-    @GetMapping("/sign-up")
-    public String signUp() {
-        return "sign-up";
+    @GetMapping("/register")
+    public String register(Model model) {
+        model.addAttribute("user", new User());
+        return "user-register";
     }
 
-    @PostMapping("/register-request-param")
-    public String registerRequestParam(
-        @RequestParam(value = "name") String name,
-        @RequestParam(value = "age") int age,
-        @RequestParam(value = "sex") boolean sex
-    ) {
-        User user = new User(name, age, sex);
-
-        users.add(user);
-
-        return "redirect:/user/list";
-    }
-
-    @PostMapping("/register-model-attribute")
+    @PostMapping("/register")
     public String registerModelAttribute(
-            @ModelAttribute User user
+            @ModelAttribute @Valid User user,
+            BindingResult result
     ) {
-        users.add(user);
+        if (result.hasErrors()) {
+            return "/user-register";
+        }
 
+        users.add(user);
         return "redirect:/user/list";
     }
 
