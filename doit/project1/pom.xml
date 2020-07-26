@@ -45,6 +45,12 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.8.Final</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.14</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -63,6 +69,12 @@
                 <version>3.2.2</version>
             </plugin>
         </plugins>
+<!--        https://maven.apache.org/plugins/maven-resources-plugin/examples/resource-directory.html-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
     </build>
 
 
