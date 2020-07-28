@@ -19,12 +19,12 @@ public class User {
     @Email(message = "Please enter correct email")
     private String email;
 
-    private boolean sex;
+    private Boolean sex;
 
     public User() {
     }
 
-    public User(String name, int age, String email, boolean sex) {
+    public User(String name, int age, String email, Boolean sex) {
         this.name = name;
         this.age = age;
         this.email = email;
