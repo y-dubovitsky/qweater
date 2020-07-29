@@ -8,3 +8,5 @@ create table users(
 insert into users values('Matthey', 34, 'Matthey@bk.ru', TRUE);
 
 select * from project1;
+
+ALTER TABLE users ADD id SERIAL;

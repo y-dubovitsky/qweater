@@ -105,10 +105,10 @@ public class JdbcUserDaoImpl implements UserDao {
         return user;
     }
 
-    public static void main(String[] args) {
-        JdbcUserDaoImpl u = new JdbcUserDaoImpl();
-        //u.dropDatabase();
-        u.createDatabase();
-    }
+//    public static void main(String[] args) {
+//        JdbcUserDaoImpl u = new JdbcUserDaoImpl();
+//        //u.dropDatabase();
+//        u.createDatabase();
+//    }
 
 }

@@ -19,8 +19,14 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean class="org.springframework.">
-
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="space.dubovitsky.application.entity"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
     </bean>
 
 
