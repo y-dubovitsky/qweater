@@ -20,7 +20,7 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
-    @Qualifier("hibernateUserDaoImpl")
+    @Qualifier("jpaUserDaoImpl")
     private UserDao userDao;
 
     @Autowired

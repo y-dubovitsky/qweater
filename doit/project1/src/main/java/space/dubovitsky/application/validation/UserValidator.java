@@ -12,7 +12,7 @@ import space.dubovitsky.application.entity.User;
 public class UserValidator implements Validator {
 
     @Autowired
-    @Qualifier("hibernateUserDaoImpl")
+    @Qualifier("jpaUserDaoImpl")
     private UserDao userDao;
 
     @Override
