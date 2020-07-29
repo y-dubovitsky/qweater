@@ -7,6 +7,7 @@ import space.dubovitsky.application.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Component
@@ -32,6 +33,9 @@ public class JpaUserDaoImpl implements UserDao {
 
     @Override
     public User findUserByEmail(String email) {
-        return null;
+        TypedQuery<User> query = entityManager.createQuery("select u from User u where email = :email", User.class);
+        query.setParameter("email", email);
+        User singleResult = query.getSingleResult();
+        return singleResult != null ? singleResult : null; //? Можно так и не делать
     }
 }
