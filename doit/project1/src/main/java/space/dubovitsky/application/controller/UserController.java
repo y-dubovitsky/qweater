@@ -1,6 +1,7 @@
 package space.dubovitsky.application.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +20,7 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
+    @Qualifier("jdbcTemplateUserDaoImpl")
     private UserDao userDao;
 
     @Autowired

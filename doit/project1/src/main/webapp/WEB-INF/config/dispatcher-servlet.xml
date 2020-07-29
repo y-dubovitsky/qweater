@@ -10,6 +10,8 @@
 
     <mvc:annotation-driven/>
 
+    <import resource="persistence-config.xml"/>
+
     <context:component-scan base-package="space.dubovitsky.application"/>
 
     <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">

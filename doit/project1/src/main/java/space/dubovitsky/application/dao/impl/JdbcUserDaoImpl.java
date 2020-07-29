@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Properties;
 
 @Component
-public class UserDaoJdbcImpl implements UserDao {
+public class JdbcUserDaoImpl implements UserDao {
 
     private static Connection connection; //! Переделать на пул соединений
 
     static {
         Properties properties = new Properties();
-        try(InputStream is = UserDaoJdbcImpl.class.getClassLoader().getResourceAsStream("persistence.properties")) {
+        try(InputStream is = JdbcUserDaoImpl.class.getClassLoader().getResourceAsStream("persistence.properties")) {
             properties.load(is);
             Class.forName(properties.getProperty("DriverClassName"));
             String url = properties.getProperty("url");
@@ -106,7 +106,7 @@ public class UserDaoJdbcImpl implements UserDao {
     }
 
     public static void main(String[] args) {
-        UserDaoJdbcImpl u = new UserDaoJdbcImpl();
+        JdbcUserDaoImpl u = new JdbcUserDaoImpl();
         //u.dropDatabase();
         u.createDatabase();
     }
