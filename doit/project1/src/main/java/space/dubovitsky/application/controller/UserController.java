@@ -1,7 +1,6 @@
 package space.dubovitsky.application.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import space.dubovitsky.application.dao.UserDao;
 import space.dubovitsky.application.entity.User;
+import space.dubovitsky.application.service.UserService;
 import space.dubovitsky.application.validation.UserValidator;
 
 import javax.validation.Valid;
@@ -20,8 +19,7 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
-    @Qualifier("jpaUserDaoImpl")
-    private UserDao userDao;
+    private UserService userService;
 
     @Autowired
     private UserValidator userValidator;
@@ -30,7 +28,7 @@ public class UserController {
     public String getUserList(
             Model model
     ) {
-        model.addAttribute("users", userDao.findAllUser());
+        model.addAttribute("users", userService.findAllUser());
 
         return "user-list";
     }
@@ -52,7 +50,7 @@ public class UserController {
             return "/user-register";
         }
 
-        userDao.addUser(user);
+        userService.addUser(user);
         return "redirect:/user/list";
     }
 
