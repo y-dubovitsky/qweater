@@ -11,6 +11,7 @@
     <mvc:annotation-driven/>
 
     <import resource="persistence-config.xml"/>
+    <import resource="aop-config.xml"/>
 
     <context:component-scan base-package="space.dubovitsky.application"/>
 
