@@ -17,7 +17,7 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc //! just like <mvc:annotation-driven/>
 @ComponentScan(value = "space.dubovitsky.application")
-@ImportResource(value = {"WEB-INF/config/aop-config.xml", "WEB-INF/config/persistence-config.xml"})
+@ImportResource(value = {"WEB-INF/config/aop-config.xml"})
 public class DispatcherServletConfig implements WebMvcConfigurer {
 
     @Bean
