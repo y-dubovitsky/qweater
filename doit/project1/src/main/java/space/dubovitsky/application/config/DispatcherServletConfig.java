@@ -3,7 +3,6 @@ package space.dubovitsky.application.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
@@ -17,7 +16,6 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc //! just like <mvc:annotation-driven/>
 @ComponentScan(value = "space.dubovitsky.application")
-@ImportResource(value = {"WEB-INF/config/aop-config.xml"})
 public class DispatcherServletConfig implements WebMvcConfigurer {
 
     @Bean

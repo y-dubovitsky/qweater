@@ -1,8 +1,5 @@
 package space.dubovitsky.application.config;
 
-import org.apache.commons.dbcp2.BasicDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -33,7 +31,7 @@ public class PersistenceConfig {
             @Value("${password}") String password,
             @Value("${username}") String username
             ) {
-        BasicDataSource dataSource = new BasicDataSource();
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://localhost:5433/project1");
         dataSource.setPassword("root");
@@ -60,18 +58,18 @@ public class PersistenceConfig {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean(DataSource dataSource) {
+    public EntityManagerFactory entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
         bean.setDataSource(dataSource);
         bean.setPackagesToScan("space.dubovitsky.application.entity");
         bean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         bean.afterPropertiesSet();
-        return bean;
+        return bean.getObject();
     }
 
-    @Bean
+    @Bean(name="transactionManager")
     public JpaTransactionManager jpaTransactionManager(
-            @Autowired @Qualifier("localContainerEntityManagerFactoryBean") EntityManagerFactory entityManagerFactory
+            EntityManagerFactory entityManagerFactory
     ) {
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
         jpaTransactionManager.setEntityManagerFactory(entityManagerFactory);
