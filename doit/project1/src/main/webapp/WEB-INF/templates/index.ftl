@@ -1,11 +1,12 @@
-<html>
-    <head>
-        <title>Index</title>
-    </head>
+<#include "main-template.ftl"/>
+
+<@main title="Main Page"/>
+
+<#macro content>
     <body>
         <h1>
             <#if msg??>
-                Hi ${msg}, How are you?
+                Hi ${msg}, How are you? <br>
             </#if>
         </h1>
         <h2>
@@ -19,4 +20,5 @@
             </#if>
         </h2>
     </body>
-</html>
+</#macro>
+

@@ -1,15 +1,11 @@
 <#assign sf=JspTaglibs["http://www.springframework.org/tags"]>
 <#assign sf=JspTaglibs["http://www.springframework.org/tags/form"]>
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>User List</title>
-    </head>
+<#include "../main-template.ftl"/>
+
+<@main title="Register Page"/>
+
+<#macro content>
     <body>
         <@sf.form action="/login/process" method="post" modelAttribute="user">
             <div>
@@ -40,4 +36,4 @@
             <input type="submit" value="Register User">
         </@sf.form>
     </body>
-</html>
+</#macro>
