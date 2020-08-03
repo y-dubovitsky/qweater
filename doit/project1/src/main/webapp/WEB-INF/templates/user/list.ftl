@@ -18,5 +18,6 @@
             <#else>
             Oooop, no one here!
         </#if>
+        <a href="/logout">Logout</a>
     </body>
 </html>

@@ -13,7 +13,12 @@ public class UserUtils {
 
     public static List<User> generateUserList() {
         return Stream
-                .generate(() -> new User("Smith", random.nextInt(), random.nextInt() + "@mail.ru",true))
+                .generate(() -> new User(
+                        "Smith",
+                        random.nextInt(),
+                        random.nextInt() + "@mail.ru",
+                        "password" + random.nextInt(),
+                        true))
                 .limit(10)
                 .collect(Collectors.toList());
     }

@@ -61,7 +61,8 @@ public class JdbcUserDaoImpl implements UserDao {
                 Integer age = resultSet.getInt("age");
                 String email = resultSet.getString("email");
                 Boolean sex = resultSet.getBoolean("sex");
-                User user = new User(name, age, email, sex);
+                String password = resultSet.getString("password");
+                User user = new User(name, age, email, password, sex);
                 userList.add(user);
             }
         } catch (SQLException e) {
@@ -72,12 +73,13 @@ public class JdbcUserDaoImpl implements UserDao {
 
     public void addUser(User user) {
         try {
-            String sql = "insert into users values(?, ?, ?, ?);";
+            String sql = "insert into users values(?, ?, ?, ?, ?);";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setObject(1, user.getName());
             statement.setObject(2, user.getAge());
             statement.setObject(3, user.getEmail());
-            statement.setObject(4, user.getSex());
+            statement.setObject(4, user.getPassword());
+            statement.setObject(5, user.getSex());
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -96,8 +98,8 @@ public class JdbcUserDaoImpl implements UserDao {
                 String name = resultSet.getString("name");
                 int age = resultSet.getInt("age");
                 Boolean sex = resultSet.getBoolean("sex");
-
-                user = new User(name, age, email, sex);
+                String password = resultSet.getString("password");
+                user = new User(name, age, email, password, sex);
             }
         } catch (SQLException e) {
             e.printStackTrace();

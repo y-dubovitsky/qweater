@@ -17,6 +17,7 @@ public class UserRowMapperHandlerImpl implements RowMapperHandler<User> {
         int age = resultSet.getInt("age");
         String email = resultSet.getString("email");
         boolean sex = resultSet.getBoolean("sex");
-        return new User(name, age, email, sex);
+        String password = resultSet.getString("password");
+        return new User(name, age, email, password, sex);
     }
 }

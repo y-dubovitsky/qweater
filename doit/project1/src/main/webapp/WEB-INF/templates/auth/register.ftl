@@ -11,7 +11,7 @@
         <title>User List</title>
     </head>
     <body>
-        <@sf.form action="/user/register" method="post" modelAttribute="user">
+        <@sf.form action="/login/process" method="post" modelAttribute="user">
             <div>
                 <@sf.label path="name">User Name</@sf.label>
                 <@sf.input path="name"/>
@@ -26,6 +26,11 @@
                 <@sf.label path="email">Email</@sf.label>
                 <@sf.input path="email"/>
                 <@sf.errors path="email"/>
+            </div>
+            <div>
+                <@sf.label path="password">Password</@sf.label>
+                <@sf.input path="password"/>
+                <@sf.errors path="password"/>
             </div>
             <div>
                 Gender:
