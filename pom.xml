@@ -21,5 +21,6 @@
     <module>spring-security-app</module>
     <module>thymeleaf</module>
     <module>doit</module>
+      <module>colibri</module>
   </modules>
 </project>
