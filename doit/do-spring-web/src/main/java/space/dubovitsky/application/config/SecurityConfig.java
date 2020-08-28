@@ -14,7 +14,7 @@ import space.dubovitsky.application.security.AuthProviderImpl;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan("space.dubovitsky.application.security")
+@ComponentScan("space.dubovitsky.application")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .csrf().disable()
                     .formLogin().loginPage("/auth/login")
-                    .loginProcessingUrl("/login/process")
+                    .loginProcessingUrl("/auth/login/process")
                     .failureUrl("/auth/login?error=true")
                     .usernameParameter("email") //! Так называется параметр, который передается в форме login.ftl
                 .and()

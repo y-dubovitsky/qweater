@@ -24,7 +24,7 @@ public class AuthController {
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("user", new User());
-        return "/auth/register";
+        return "auth/register";
     }
 
     @PostMapping("/register")
@@ -35,7 +35,7 @@ public class AuthController {
         userValidator.validate(user, result); //! Тут ошибка высплывает, что то там с локалью
 
         if (result.hasErrors()) {
-            return "/auth/register";
+            return "auth/register";
         }
 
         userService.addUser(user);
@@ -50,7 +50,7 @@ public class AuthController {
         if (Boolean.TRUE.equals(error)) {
             model.addAttribute("error", true);
         }
-        return "/auth/login";
+        return "auth/login";
     }
 
 }

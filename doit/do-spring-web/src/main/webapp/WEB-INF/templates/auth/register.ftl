@@ -7,7 +7,7 @@
 
 <#macro content>
     <body>
-        <@sf.form action="/login/process" method="post" modelAttribute="user">
+        <@sf.form action="/register" method="post" modelAttribute="user">
             <div>
                 <@sf.label path="name">User Name</@sf.label>
                 <@sf.input path="name"/>

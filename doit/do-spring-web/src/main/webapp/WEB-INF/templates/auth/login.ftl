@@ -4,7 +4,7 @@
 
 <#macro content>
     <body>
-        <form action="/auth/login" method="post">
+        <form action="/auth/login/process" method="post">
             Email: <input name="email" type="email">
             Password: <input name="password" type="password">
             Login: <input type="submit">
