@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <hibernate.version>4.1.11.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
     </properties>
 
     <dependencies>
